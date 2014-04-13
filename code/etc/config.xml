@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Yavva_AlsoViewed>
+            <version>1.0.0</version>
+        </Yavva_AlsoViewed>
+    </modules>
+
+    <global>
+        <blocks>
+            <alsoviewed>
+                <class>Yavva_AlsoViewed_Block</class>
+            </alsoviewed>
+        </blocks>
+        <helpers>
+            <alsoviewed>
+                <class>Yavva_AlsoViewed_Helper</class>
+            </alsoviewed>
+        </helpers>
+    </global>
+
+    <frontend>
+        <translate>
+            <modules>
+                <Yavva_AlsoViewed>
+                    <files>
+                        <default>Yavva_AlsoViewed.csv</default>
+                    </files>
+                </Yavva_AlsoViewed>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <alsoviewed>
+                    <file>yavva/alsoviewed.xml</file>
+                </alsoviewed>
+            </updates>
+        </layout>
+    </frontend>
+
+    <default>
+        <alsoviewed>
+            <content>
+                <enabled>1</enabled>
+                <mode>grid</mode>
+                <products_count>4</products_count>
+                <column_count>4</column_count>
+            </content>
+            <left>
+                <enabled>1</enabled>
+                <mode>list</mode>
+                <products_count>4</products_count>
+                <column_count>4</column_count>
+            </left>
+            <right>
+                <enabled>1</enabled>
+                <mode>list</mode>
+                <products_count>4</products_count>
+                <column_count>4</column_count>
+            </right>
+        </alsoviewed>
+    </default>
+</config>

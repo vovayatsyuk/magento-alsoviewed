@@ -1,0 +1,11 @@
+<config>
+    <modules>
+        <Yavva_AlsoViewed>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Catalog/>
+            </depends>
+        </Yavva_AlsoViewed>
+    </modules>
+</config>
