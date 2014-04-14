@@ -56,7 +56,7 @@
                 <enabled>1</enabled>
                 <mode>list</mode>
                 <products_count>4</products_count>
-                <column_count>4</column_count>
+                <column_count>2</column_count>
             </right>
         </alsoviewed>
     </default>
