@@ -3,9 +3,23 @@
     height: auto;
     width: auto;
 }
+.also-viewed .actions {
+    padding: 0;
+}
+.also-viewed .actions a {
+    float: none;
+}
 
-.also-viewed .products-grid li.item {
-    padding: 10px;
+.also-viewed .products-grid {
+    width: 100%;
+    background: none;
+    border: none;
+}
+.also-viewed .products-grid .product-image {
+    width: auto;
+    height: auto;
+    margin: 0 0 7px;
+    padding: 0;
 }
 .also-viewed .products-grid .actions {
     position: static;
@@ -15,6 +29,12 @@
 .also-viewed .products-grid .actions .button {
     float: none;
 }
+/* Mutlicolumn styles */
+.also-viewed .products-grid li.item { padding: 10px 1.5%; width: 23%; }
+.also-viewed .cols-2 li.item { width: 46%; padding: 10px 2%; }
+.also-viewed .cols-3 li.item { width: 30.3%; }
+.also-viewed .cols-4 li.item { width: 22%; }
+.also-viewed .cols-5 li.item { width: 17%; }
 
 .also-viewed .products-list .product-image {
     float: left;
@@ -36,20 +56,12 @@
 }
 
 /* Sidebar */
-.sidebar .also-viewed .products-grid {
-    width: 100%;
-    background: none;
-    border: none;
-}
 .sidebar .also-viewed .products-grid li.item {
-    width: 48%;
-    padding: 1%;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 .sidebar .also-viewed .products-grid .product-image {
-    width: auto;
-    height: auto;
     margin: 0;
-    padding: 0;
 }
 .sidebar .also-viewed .products-grid .product-name,
 .sidebar .also-viewed .products-grid .price-box,
