@@ -7,27 +7,33 @@
 
     <catalog_product_view>
         <reference name="product.info.additional">
-            <block type="alsoviewed/products" name="alsoviewed.content">
+            <block type="core/template" name="alsoviewed.content.wrapper" before="-">
                 <action method="setTemplate" ifconfig="alsoviewed/content/enabled">
-                    <template>yavva/alsoviewed/products.phtml</template>
+                    <template>yavva/alsoviewed/wrapper/content.phtml</template>
                 </action>
-                <action method="addDataFromConfig"><path>alsoviewed/content</path></action>
+                <block type="alsoviewed/products" name="alsoviewed.list" template="yavva/alsoviewed/products.phtml">
+                    <action method="addDataFromConfig"><path>alsoviewed/content</path></action>
+                </block>
             </block>
         </reference>
         <reference name="left">
-            <block type="alsoviewed/products" name="alsoviewed.left" before="-">
+            <block type="core/template" name="alsoviewed.left.wrapper" before="-">
                 <action method="setTemplate" ifconfig="alsoviewed/left/enabled">
-                    <template>yavva/alsoviewed/products.phtml</template>
+                    <template>yavva/alsoviewed/wrapper/sidebar.phtml</template>
                 </action>
-                <action method="addDataFromConfig"><path>alsoviewed/left</path></action>
+                <block type="alsoviewed/products" name="alsoviewed.list" template="yavva/alsoviewed/products.phtml">
+                    <action method="addDataFromConfig"><path>alsoviewed/left</path></action>
+                </block>
             </block>
         </reference>
         <reference name="right">
-            <block type="alsoviewed/products" name="alsoviewed.right" before="-">
+            <block type="core/template" name="alsoviewed.right.wrapper" before="-">
                 <action method="setTemplate" ifconfig="alsoviewed/right/enabled">
-                    <template>yavva/alsoviewed/products.phtml</template>
+                    <template>yavva/alsoviewed/wrapper/sidebar.phtml</template>
                 </action>
-                <action method="addDataFromConfig"><path>alsoviewed/right</path></action>
+                <block type="alsoviewed/products" name="alsoviewed.list" template="yavva/alsoviewed/products.phtml">
+                    <action method="addDataFromConfig"><path>alsoviewed/right</path></action>
+                </block>
             </block>
         </reference>
     </catalog_product_view>
