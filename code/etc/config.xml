@@ -17,6 +17,30 @@
                 <class>Yavva_AlsoViewed_Helper</class>
             </alsoviewed>
         </helpers>
+        <models>
+            <alsoviewed>
+                <class>Yavva_AlsoViewed_Model</class>
+                <resourceModel>alsoviewed_resource</resourceModel>
+            </alsoviewed>
+            <alsoviewed_resource>
+                <class>Yavva_AlsoViewed_Model_Resource</class>
+                <entities>
+                    <log>
+                        <table>yavva_alsoviewed_log</table>
+                    </log>
+                    <relation>
+                        <table>yavva_alsoviewed_relation</table>
+                    </relation>
+                </entities>
+            </alsoviewed_resource>
+        </models>
+        <resources>
+            <yavva_alsoviewed_setup>
+                <setup>
+                    <module>Yavva_AlsoViewed</module>
+                </setup>
+            </yavva_alsoviewed_setup>
+        </resources>
     </global>
 
     <frontend>
@@ -36,6 +60,16 @@
                 </alsoviewed>
             </updates>
         </layout>
+        <events>
+            <catalog_controller_product_view>
+                <observers>
+                    <alsoviewed>
+                        <class>alsoviewed/observer</class>
+                        <method>catalogProductView</method>
+                    </alsoviewed>
+                </observers>
+            </catalog_controller_product_view>
+        </events>
     </frontend>
 
     <default>
