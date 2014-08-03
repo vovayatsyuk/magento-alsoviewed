@@ -16,12 +16,13 @@ class Yavva_AlsoViewed_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Ab
     {
         $insertData = array();
         foreach ($ids as $relatedId) {
+            // All relations are bidirectional, so I can use the min and max to
+            // prevent duplicated relations in grouped by product_id columns query
+            // @see getGroupedRelations method
             $insertData[] = array(
-                'product_id' => $id,
-                'related_product_id' => $relatedId
+                'product_id'         => min($id, $relatedId),
+                'related_product_id' => max($id, $relatedId)
             );
-            // bi-directional relations will be generated during log processing
-            // @see Yavva_AlsoViewed_Model_Observer::processLog
         }
         $this->_getWriteAdapter()->insertMultiple(
             $this->getMainTable(), $insertData
