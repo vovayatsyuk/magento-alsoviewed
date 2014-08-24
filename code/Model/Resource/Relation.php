@@ -9,13 +9,20 @@ class Yavva_AlsoViewed_Model_Resource_Relation extends Mage_Core_Model_Resource_
 
     public function updateRelations($relationsData, $bidirectional = true)
     {
+        $data = $relationsData;
+        if ($bidirectional) {
+            foreach ($relationsData as $relation) {
+                $data[] = array(
+                    'product_id'         => $relation['related_product_id'],
+                    'related_product_id' => $relation['product_id'],
+                    'weight'             => $relation['weight'],
+                );
+            }
+        }
+
         $adapter = $this->_getReadAdapter();
-        $adapter->insertOnDuplicate($this->getMainTable(), $relationsData, array(
+        $adapter->insertOnDuplicate($this->getMainTable(), $data, array(
             'weight' => new Zend_Db_Expr('weight + VALUES(weight)')
         ));
-
-        if ($bidirectional) {
-            // swap product_id and related_product_id
-        }
     }
 }
