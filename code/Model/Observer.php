@@ -42,7 +42,7 @@ class Yavva_AlsoViewed_Model_Observer
         if ($data) {
             try {
                 Mage::getResourceModel('alsoviewed/relation')->updateRelations($data);
-                // $log->clean();
+                $log->clean();
             } catch (Zend_Db_Exception $e) {
                 Mage::logException($e);
             }
