@@ -26,7 +26,7 @@ $table = $installer->getConnection()
         ), 'Relation Weight')
     ->addColumn('position', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
         'nullable'  => false,
-        'default'   => '0',
+        'default'   => '50',
         ), 'Custom Sort Order Parameter')
     ->addColumn('status', Varien_Db_Ddl_Table::TYPE_SMALLINT, null, array(
         'unsigned'  => true,
@@ -54,7 +54,7 @@ $table = $installer->getConnection()
         'product_id', $installer->getTable('catalog/product'), 'entity_id',
         Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE)
     ->addForeignKey($installer->getFkName('alsoviewed/relation', 'related_product_id', 'catalog/product', 'entity_id'),
-        'product_id', $installer->getTable('catalog/product'), 'entity_id',
+        'related_product_id', $installer->getTable('catalog/product'), 'entity_id',
         Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE)
     ->setComment('AlsoViewed Relations Table');
 $installer->getConnection()->createTable($table);
