@@ -22,7 +22,7 @@ class Yavva_AlsoViewed_Model_Observer
             $viewedIds = array();
         }
 
-        if (!in_array($productId, $viewedIds)) {
+        if ($productId && !in_array($productId, $viewedIds)) {
             if (count($viewedIds)) {
                 Mage::getResourceModel('alsoviewed/log')->insertRelations(
                     $productId, $viewedIds
@@ -37,8 +37,15 @@ class Yavva_AlsoViewed_Model_Observer
      */
     public function processLog()
     {
-        // Take the records from alsoviewed_log and update/insert
-        // @todo create bi-directional relations: id1 => id2 and id2 => id1
-        // Mage::getResourceModel('alsoviewed/relation')
+        $log  = Mage::getResourceModel('alsoviewed/log');
+        $data = $log->getGroupedRelations();
+        if ($data) {
+            try {
+                Mage::getResourceModel('alsoviewed/relation')->updateRelations($data);
+                // $log->clean();
+            } catch (Zend_Db_Exception $e) {
+                Mage::logException($e);
+            }
+        }
     }
 }

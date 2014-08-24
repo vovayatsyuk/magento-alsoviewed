@@ -30,4 +30,34 @@ class Yavva_AlsoViewed_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Ab
 
         return $this;
     }
+
+    /**
+     * Retrieve product relations with weight
+     *
+     * @return array
+     */
+    public function getGroupedRelations()
+    {
+        $adapter = $this->_getReadAdapter();
+        $select  = $adapter->select()
+            ->from($this->getMainTable(), array(
+                'product_id',
+                'related_product_id',
+                'weight' => 'COUNT(entity_id)'
+            ))
+            ->group(array('product_id', 'related_product_id'));
+
+        return $adapter->fetchAll($select);
+    }
+
+    /**
+     * Remove records from table
+     *
+     * @param array $where
+     * @return Number of affected rows
+     */
+    public function clean($where = '')
+    {
+        return $this->_getWriteAdapter()->delete($this->getMainTable(), $where);
+    }
 }

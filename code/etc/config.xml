@@ -72,6 +72,19 @@
         </events>
     </frontend>
 
+    <crontab>
+        <jobs>
+            <alsoviewed_process_log>
+                <schedule>
+                    <cron_expr>35 1 * * *</cron_expr> <!-- Every Day at 1:35AM -->
+                </schedule>
+                <run>
+                    <model>alsoviewed/observer::processLog</model>
+                </run>
+            </alsoviewed_process_log>
+        </jobs>
+    </crontab>
+
     <default>
         <alsoviewed>
             <content>
