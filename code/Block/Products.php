@@ -2,26 +2,21 @@
 
 class Yavva_AlsoViewed_Block_Products extends Mage_Catalog_Block_Product_Abstract
 {
+    const DEFAULT_PRODUCTS_COUNT = 4;
+
     /**
      * @var Mage_Catalog_Model_Resource_Product_Collection $_productCollection
      */
     protected $_productCollection = null;
 
     /**
-     * @todo replace with AlsoViewed collection
+     * Retrieve alsoviewed products collection
+     *
      * @return Mage_Catalog_Model_Resource_Product_Collection
      */
     public function getProductCollection()
     {
         if (null === $this->_productCollection) {
-            $todayStartOfDayDate  = Mage::app()->getLocale()->date()
-                ->setTime('00:00:00')
-                ->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
-
-            $todayEndOfDayDate  = Mage::app()->getLocale()->date()
-                ->setTime('23:59:59')
-                ->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
-
             $collection = Mage::getResourceModel('catalog/product_collection');
             $collection->setVisibility(
                 Mage::getSingleton('catalog/product_visibility')->getVisibleInCatalogIds()
@@ -29,23 +24,25 @@ class Yavva_AlsoViewed_Block_Products extends Mage_Catalog_Block_Product_Abstrac
 
             $collection = $this->_addProductAttributesAndPrices($collection)
                 ->addStoreFilter()
-                ->addAttributeToFilter('news_from_date', array('or'=> array(
-                    0 => array('date' => true, 'to' => $todayEndOfDayDate),
-                    1 => array('is' => new Zend_Db_Expr('null')))
-                ), 'left')
-                ->addAttributeToFilter('news_to_date', array('or'=> array(
-                    0 => array('date' => true, 'from' => $todayStartOfDayDate),
-                    1 => array('is' => new Zend_Db_Expr('null')))
-                ), 'left')
-                ->addAttributeToFilter(
-                    array(
-                        array('attribute' => 'news_from_date', 'is'=>new Zend_Db_Expr('not null')),
-                        array('attribute' => 'news_to_date', 'is'=>new Zend_Db_Expr('not null'))
-                    )
-                )
-                ->addAttributeToSort('news_from_date', 'desc')
                 ->setPageSize($this->getProductsCount())
                 ->setCurPage(1);
+
+            $collection
+                ->joinTable(
+                    array('alsoviewed' => 'alsoviewed/relation'),
+                    'related_product_id=entity_id',
+                    array(
+                        'alsoviewed_weight'   => 'weight',
+                        'alsoviewed_position' => 'position',
+                    ),
+                    array(
+                        'product_id' => $this->getProductId(),
+                        'status'     => 1
+                    ),
+                    'inner'
+                )
+                ->addAttributeToSort('alsoviewed_position', 'ASC')
+                ->addAttributeToSort('alsoviewed_weight', 'DESC');
 
             $this->_productCollection = $collection;
         }
@@ -53,6 +50,42 @@ class Yavva_AlsoViewed_Block_Products extends Mage_Catalog_Block_Product_Abstrac
         return $this->_productCollection;
     }
 
+    /**
+     * Retrieve product id
+     *
+     * @return integer
+     */
+    public function getProductId()
+    {
+        $id = $this->_getData('product_id');
+        if (null === $id) {
+            $product = Mage::registry('current_product');
+            if ($product) {
+                $id = $product->getId();
+            }
+        }
+        return $id;
+    }
+
+    /**
+     * Retrieve products count to show
+     *
+     * @return integer
+     */
+    public function getProductsCount()
+    {
+        $count = $this->_getData('products_count');
+        if (null === $count) {
+            return self::DEFAULT_PRODUCTS_COUNT;
+        }
+        return $count;
+    }
+
+    /**
+     * Used to setup the block from the layout file
+     *
+     * @param [type] $path [description]
+     */
     public function addDataFromConfig($path)
     {
         $config = Mage::getStoreConfig($path);
