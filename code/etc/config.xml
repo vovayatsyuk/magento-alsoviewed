@@ -72,6 +72,18 @@
         </events>
     </frontend>
 
+    <adminhtml>
+        <translate>
+            <modules>
+                <Yavva_AlsoViewed>
+                    <files>
+                        <default>Yavva_AlsoViewed.csv</default>
+                    </files>
+                </Yavva_AlsoViewed>
+            </modules>
+        </translate>
+    </adminhtml>
+
     <crontab>
         <jobs>
             <alsoviewed_process_log>
@@ -88,19 +100,19 @@
     <default>
         <alsoviewed>
             <content>
-                <enabled>1</enabled>
+                <enabled>0</enabled>
                 <mode>grid</mode>
                 <products_count>4</products_count>
                 <column_count>4</column_count>
             </content>
             <left>
-                <enabled>1</enabled>
+                <enabled>0</enabled>
                 <mode>list</mode>
                 <products_count>4</products_count>
-                <column_count>4</column_count>
+                <column_count>3</column_count>
             </left>
             <right>
-                <enabled>1</enabled>
+                <enabled>0</enabled>
                 <mode>list</mode>
                 <products_count>4</products_count>
                 <column_count>3</column_count>

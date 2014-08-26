@@ -1,7 +1,8 @@
-Yavva_AlsoViewed.xml    app/etc/modules/Yavva_AlsoViewed.xml
-code                    app/code/community/Yavva/AlsoViewed
-adminhtml/layout/*      app/design/adminhtml/base/default/layout/yavva
-adminhtml/template      app/design/adminhtml/base/default/template/yavva/alsoviewed
-frontend/layout/*       app/design/frontend/base/default/layout/yavva
-frontend/template       app/design/frontend/base/default/template/yavva/alsoviewed
-skin                    skin/frontend/base/default/yavva/alsoviewed
+Yavva_AlsoViewed.xml                app/etc/modules/Yavva_AlsoViewed.xml
+code                                app/code/community/Yavva/AlsoViewed
+adminhtml/layout/*                  app/design/adminhtml/base/default/layout/yavva
+adminhtml/template                  app/design/adminhtml/base/default/template/yavva/alsoviewed
+frontend/layout/*                   app/design/frontend/base/default/layout/yavva
+frontend/template                   app/design/frontend/base/default/template/yavva/alsoviewed
+locale/en_US/Yavva_AlsoViewed.csv   app/locale/en_US/Yavva_AlsoViewed.csv
+skin                                skin/frontend/base/default/yavva/alsoviewed
