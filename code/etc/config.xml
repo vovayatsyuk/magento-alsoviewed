@@ -72,6 +72,18 @@
         </events>
     </frontend>
 
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <alsoviewed after="Mage_Adminhtml">Yavva_AlsoViewed_Adminhtml</alsoviewed>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
     <adminhtml>
         <translate>
             <modules>
@@ -82,6 +94,13 @@
                 </Yavva_AlsoViewed>
             </modules>
         </translate>
+        <layout>
+            <updates>
+                <alsoviewed>
+                     <file>yavva/alsoviewed.xml</file>
+                </alsoviewed>
+            </updates>
+        </layout>
     </adminhtml>
 
     <crontab>

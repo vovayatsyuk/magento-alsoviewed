@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
+    <menu>
+        <catalog>
+            <children>
+                <alsoviewed translate="title" module="alsoviewed">
+                    <title>Also Viewed Products</title>
+                    <sort_order>45</sort_order>
+                    <children>
+                        <alsoviewed_usage>
+                            <title>Manage Relations</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/alsoviewed_relations/index</action>
+                        </alsoviewed_usage>
+                        <alsoviewed_log>
+                            <title>View Log</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/alsoviewed_log/index</action>
+                        </alsoviewed_log>
+                    </children>
+                </alsoviewed>
+            </children>
+        </catalog>
+    </menu>
     <acl>
         <resources>
             <admin>
@@ -15,6 +37,40 @@
                             </config>
                         </children>
                     </system>
+                    <catalog>
+                        <children>
+                            <alsoviewed translate="title" module="alsoviewed">
+                                <title>Also Viewed Products</title>
+                                <sort_order>45</sort_order>
+                                <children>
+                                    <alsoviewed_relations>
+                                        <title>Manage Relations</title>
+                                        <sort_order>10</sort_order>
+                                        <children>
+                                            <save>
+                                                <title>Save Relations</title>
+                                                <sort_order>0</sort_order>
+                                            </save>
+                                            <delete>
+                                                <title>Delete Relations</title>
+                                                <sort_order>0</sort_order>
+                                            </delete>
+                                        </children>
+                                    </alsoviewed_relations>
+                                    <alsoviewed_log>
+                                        <title>View Log</title>
+                                        <sort_order>20</sort_order>
+                                        <children>
+                                            <process>
+                                                <title>Process Log</title>
+                                                <sort_order>0</sort_order>
+                                            </process>
+                                        </children>
+                                    </alsoviewed_log>
+                                </children>
+                            </alsoviewed>
+                        </children>
+                    </catalog>
                 </children>
             </admin>
         </resources>

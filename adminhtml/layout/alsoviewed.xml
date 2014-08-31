@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_alsoviewed_relations_index>
+        <reference name="content">
+            <block type="alsoviewed/adminhtml_relations" name="alsoviewed_relations"/>
+        </reference>
+    </adminhtml_alsoviewed_relations_index>
+
+    <adminhtml_alsoviewed_log_index>
+        <reference name="content">
+            <block type="alsoviewed/adminhtml_log" name="alsoviewed_log"/>
+        </reference>
+    </adminhtml_alsoviewed_log_index>
+</layout>

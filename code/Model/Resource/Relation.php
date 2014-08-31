@@ -40,4 +40,33 @@ class Yavva_AlsoViewed_Model_Resource_Relation extends Mage_Core_Model_Resource_
             'weight' => new Zend_Db_Expr('weight + VALUES(weight)')
         ));
     }
+
+    /**
+     * Update multiple relations at once
+     *
+     * @param  array $ids
+     * @param  array $data  Column => Value pairs
+     * @return int          Number of affected rows
+     */
+    public function updateMultiple($ids, $data)
+    {
+        $adapter = $this->_getWriteAdapter();
+        return $adapter->update($this->getMainTable(), $data, array(
+            'relation_id IN (?)' => $ids
+        ));
+    }
+
+    /**
+     * Delete relations by ids
+     *
+     * @param  array $ids   Relations ids
+     * @return int          Number of affected rows
+     */
+    public function deleteMultiple($ids)
+    {
+        $adapter = $this->_getWriteAdapter();
+        return $adapter->delete($this->getMainTable(), array(
+            'relation_id IN (?)' => $ids
+        ));
+    }
 }
