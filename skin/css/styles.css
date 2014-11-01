@@ -1,4 +1,5 @@
-.also-viewed .product-image img {
+.also-viewed .product-image img,
+.also-viewed .products-grid .product-image img {
     max-width: 100%;
     height: auto;
     width: auto;
