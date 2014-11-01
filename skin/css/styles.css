@@ -24,13 +24,20 @@
 .also-viewed .products-grid .actions {
     position: static;
     background: none;
-    text-align: left;
 }
 .also-viewed .products-grid .actions .button {
     float: none;
 }
+.product-view .also-viewed .add-to-links {
+    clear: none;
+    float: none;
+    margin: 5px auto;
+}
+.product-view .also-viewed .add-to-links a {
+    border: none;
+}
 /* Mutlicolumn styles */
-.also-viewed .products-grid li.item { padding: 10px 1.5%; width: 23%; }
+.also-viewed .products-grid li.item { padding: 10px 1.5%; width: 23%; margin: 0; }
 .also-viewed .cols-2 li.item { width: 46%; padding: 10px 2%; }
 .also-viewed .cols-3 li.item { width: 30.3%; }
 .also-viewed .cols-4 li.item { width: 22%; }
