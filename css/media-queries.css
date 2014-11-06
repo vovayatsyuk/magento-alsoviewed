@@ -43,7 +43,7 @@
 
    /* Hero Section
    -------------------------------------------------------------------- */
-   #hero { padding-top: 48px; }
+   #hero { padding-top: 0; }
    .hero-text { width: 92%; }
    .hero-text h1 { font: 31px/1.2em 'montserrat-regular', sans-serif; }
    .hero-text p { font: 14px/24px 'opensans-regular', sans-serif; }
@@ -64,11 +64,20 @@
 
    /* Screenshots
    ------------------------------------------------------------------- */
+   #screenshots {
+      padding-top: 60px;
+      padding-bottom: 60px;
+   }
    #screenshots-wrapper {
       width: 80%;
       margin: 0 auto;
    }
    #screenshots-wrapper .columns { margin-bottom: 36px; }
+
+   #source {
+      padding-top: 60px;
+      padding-bottom: 60px;
+   }
 
    /* footer
    ------------------------------------------------------------------------ */
