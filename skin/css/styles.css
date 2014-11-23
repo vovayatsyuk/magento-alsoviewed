@@ -1,97 +1,78 @@
-.also-viewed .product-image img,
-.also-viewed .products-grid .product-image img {
-    max-width: 100%;
-    height: auto;
-    width: auto;
-}
-.also-viewed .actions {
-    padding: 0;
-}
-.also-viewed .actions a {
-    float: none;
-}
+/* reset cms page std styles */
+.std .also-viewed ul,
+.std .also-viewed ol { margin: 0; padding: 0; list-style: none; }
+.std .also-viewed .add-to-links { margin: 5px 0 0; }
+.std .also-viewed .add-to-links li { margin: 0; }
+.std .also-viewed .price-box p { margin: 0; }
 
-.also-viewed .products-grid {
-    width: 100%;
-    background: none;
-    border: none;
-}
-.also-viewed .products-grid .product-image {
-    width: auto;
-    height: auto;
-    margin: 0 0 7px;
-    padding: 0;
-}
-.also-viewed .products-grid .actions {
-    position: static;
-    background: none;
-}
-.also-viewed .products-grid .actions .button {
-    float: none;
-}
-.product-view .also-viewed .add-to-links {
+.also-viewed .block-title { color: #0A263C; font-size: 14px; font-weight: bold; }
+.col-main .also-viewed { margin: 0 0 0.7em; }
+.also-viewed img { max-width: 100%; height: auto; }
+.also-viewed .products-grid { position: static; background: none; width: auto; }
+.also-viewed .products-grid .actions { position: static; }
+
+/* multicolumns mode */
+.also-viewed .products-grid li.item {
+    padding: 7px 1%;
+    margin: 0 1% 7px;
     clear: none;
-    float: none;
-    margin: 5px auto;
+    box-sizing: border-box;
 }
-.product-view .also-viewed .add-to-links a {
-    border: none;
-}
-/* Mutlicolumn styles */
-.also-viewed .products-grid li.item { padding: 10px 1.5%; width: 23%; margin: 0; }
-.also-viewed .cols-2 li.item { width: 46%; padding: 10px 2%; }
-.also-viewed .cols-3 li.item { width: 30.3%; }
-.also-viewed .cols-4 li.item { width: 22%; }
-.also-viewed .cols-5 li.item { width: 17%; }
+.also-viewed .products-grid.cols-1 li.item { width: 100%; }
+.also-viewed .products-grid.cols-2 li.item { width: 48%; }
+.also-viewed .products-grid.cols-3 li.item { width: 31.3%; }
+.also-viewed .products-grid.cols-4 li.item { width: 23%; }
+.also-viewed .products-grid.cols-5 li.item { width: 18%; }
+.also-viewed .products-grid.cols-6 li.item { width: 14.6%; }
+.also-viewed .products-grid li.item:last-child { margin: 0 1% 7px; } /* rwd fix */
 
-.also-viewed .products-list .product-image {
-    float: left;
-    max-width: 25%;
-    height: auto;
-    width: auto;
-}
-.also-viewed .products-list .product-shop {
-    margin: 0 0 0 25%;
-    padding: 0 0 0 5px;
-    float: none;
-    width: auto;
-}
-.also-viewed .products-list .product-shop .price-box {
-    margin: 0 13px 5px 0;
-}
-.also-viewed .products-list .product-shop .add-to-links {
-    text-align: left;
-}
+.also-viewed .products-list .product-image { max-width: 135px; }
+.also-viewed .products-list .product-shop { margin-left: 150px; float: none; width: auto; padding-left: 0; }
+.also-viewed .products-list .product-shop .product-name { float: none; }
+.product-view .also-viewed .add-to-links { margin-right: 0; float: none; }
+.product-view .also-viewed .add-to-links li { float: none; }
+.product-view .also-viewed .add-to-links a { border: none; }
 
 /* Sidebar */
-.sidebar .also-viewed .products-grid li.item {
-    padding-top: 4px;
-    padding-bottom: 4px;
-}
-.sidebar .also-viewed .products-grid .product-image {
-    margin: 0;
-}
+.sidebar .also-viewed .product-name { font-size: 1em; }
+.sidebar .also-viewed .products-grid li.item { padding-top: 4px; padding-bottom: 4px; margin-bottom: 5px; }
+.sidebar .also-viewed .products-grid li.item:last-child { margin-bottom: 5px; } /* rwd fix */
+.sidebar .also-viewed .products-grid .product-image { margin: 0; width: auto; height: auto; }
 .sidebar .also-viewed .products-grid .product-name,
 .sidebar .also-viewed .products-grid .price-box,
-.sidebar .also-viewed .products-grid .actions {
-    display: none;
-}
-
-.sidebar .also-viewed .products-list li.item {
-    padding: 5px 7px;
-}
-.sidebar .also-viewed .products-list .add-to-links li {
-    float: none;
-    display: block;
-}
-.sidebar .also-viewed .products-list .product-image {
-    max-width: 30%;
-}
-.sidebar .also-viewed .products-list .product-shop {
-    margin: 0 0 0 30%;
-}
+.sidebar .also-viewed .products-grid .actions { display: none; }
+.sidebar .also-viewed .products-list li.item { padding: 5px; }
+.sidebar .also-viewed .products-list .add-to-links li { float: none; display: block; }
+.sidebar .also-viewed .products-list .product-image { max-width: 30%; height: auto; margin: 0; }
+.sidebar .also-viewed .products-list .product-shop { margin: 0 0 0 32%; }
 .sidebar .also-viewed .products-list .btn-cart,
 .sidebar .also-viewed .products-list .desc,
-.sidebar .also-viewed .products-list .add-to-links .separator {
-    display: none;
+.sidebar .also-viewed .products-list .add-to-links .separator { display: none; }
+
+.also-viewed .block-content { zoom: 1; }
+.also-viewed .block-content:after { content: '.'; display: block; clear: both; visibility: hidden; height: 0; font-size: 0; }
+
+@media (max-width: 767px) {
+    /* Three columns instead of six */
+    .also-viewed .products-grid.cols-6 li.item { width: 31.3%; }
+    .also-viewed .products-grid.cols-6 li.item:nth-of-type(4n) { clear: left; }
+}
+
+@media (max-width: 480px) {
+    .also-viewed .products-grid.cols-6 li.item:nth-of-type(4n) { clear: none; }
+    /* Two columns for small screen */
+    .also-viewed .products-grid li.item { width: 48% !important; padding-left: 2%; padding-right: 2%; }
+    .also-viewed .products-grid.cols-1 li.item { width: 100% !important; margin-left: 0; margin-right: 0; }
+    /* clear: left for every third li */
+    .also-viewed .products-grid.cols-2 li.item:nth-of-type(2n+1),
+    .also-viewed .products-grid.cols-4 li.item:nth-of-type(2n+1),
+    .also-viewed .products-grid.cols-6 li.item:nth-of-type(2n+1),
+    /* clear: left for every third li inside every third .easycatalog-grid */
+    .also-viewed .products-grid.cols-3:nth-of-type(2n+1) li.item:nth-of-type(2n+1),
+    .also-viewed .products-grid.cols-5:nth-of-type(2n+1) li.item:nth-of-type(2n+1),
+    /* clear: left for every second li inside every second .easycatalog-grid */
+    .also-viewed .products-grid.cols-3:nth-of-type(2n) li.item:nth-of-type(2n),
+    .also-viewed .products-grid.cols-5:nth-of-type(2n) li.item:nth-of-type(2n) { clear: left; }
+    .also-viewed .products-grid.cols-3:after,
+    .also-viewed .products-grid.cols-5:after { content: ''; clear: none; }
 }
