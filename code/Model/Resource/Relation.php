@@ -1,6 +1,6 @@
 <?php
 
-class Yavva_AlsoViewed_Model_Resource_Relation extends Mage_Core_Model_Resource_Db_Abstract
+class Yavva_Alsoviewed_Model_Resource_Relation extends Mage_Core_Model_Resource_Db_Abstract
 {
     protected function _construct()
     {

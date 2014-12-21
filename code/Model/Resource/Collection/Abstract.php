@@ -1,6 +1,6 @@
 <?php
 
-abstract class Yavva_AlsoViewed_Model_Resource_Collection_Abstract
+abstract class Yavva_Alsoviewed_Model_Resource_Collection_Abstract
     extends Mage_Core_Model_Resource_Db_Collection_Abstract
 {
     protected $_map = array('fields' => array(

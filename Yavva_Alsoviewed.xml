@@ -1,11 +1,11 @@
 <config>
     <modules>
-        <Yavva_AlsoViewed>
+        <Yavva_Alsoviewed>
             <active>true</active>
             <codePool>community</codePool>
             <depends>
                 <Mage_Catalog/>
             </depends>
-        </Yavva_AlsoViewed>
+        </Yavva_Alsoviewed>
     </modules>
 </config>

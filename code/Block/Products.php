@@ -1,6 +1,6 @@
 <?php
 
-class Yavva_AlsoViewed_Block_Products extends Mage_Catalog_Block_Product_Abstract
+class Yavva_Alsoviewed_Block_Products extends Mage_Catalog_Block_Product_Abstract
 {
     const DEFAULT_PRODUCTS_COUNT = 4;
     const DEFAULT_IMAGE_WIDTH    = 170;

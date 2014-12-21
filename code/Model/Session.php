@@ -1,6 +1,6 @@
 <?php
 
-class Yavva_AlsoViewed_Model_Session extends Mage_Core_Model_Session_Abstract
+class Yavva_Alsoviewed_Model_Session extends Mage_Core_Model_Session_Abstract
 {
     /**
      * Initialize session namespace

@@ -1,6 +1,6 @@
 <?php
 
-class Yavva_AlsoViewed_Model_System_Config_Source_ListMode
+class Yavva_Alsoviewed_Model_System_Config_Source_ListMode
 {
     public function toOptionArray()
     {

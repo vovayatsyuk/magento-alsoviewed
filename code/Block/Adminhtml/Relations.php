@@ -1,6 +1,6 @@
 <?php
 
-class Yavva_AlsoViewed_Block_Adminhtml_Relations extends Mage_Adminhtml_Block_Widget_Grid_Container
+class Yavva_Alsoviewed_Block_Adminhtml_Relations extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
     public function __construct()
     {

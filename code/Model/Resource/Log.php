@@ -1,6 +1,6 @@
 <?php
 
-class Yavva_AlsoViewed_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstract
+class Yavva_Alsoviewed_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Abstract
 {
     protected function _construct()
     {
@@ -10,7 +10,7 @@ class Yavva_AlsoViewed_Model_Resource_Log extends Mage_Core_Model_Resource_Db_Ab
     /**
      * @param  int $id      Product Id
      * @param  array $ids   Related Product Ids
-     * @return Yavva_AlsoViewed_Model_Resource_Log
+     * @return Yavva_Alsoviewed_Model_Resource_Log
      */
     public function insertRelations($id, $ids)
     {

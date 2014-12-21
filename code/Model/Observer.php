@@ -1,6 +1,6 @@
 <?php
 
-class Yavva_AlsoViewed_Model_Observer
+class Yavva_Alsoviewed_Model_Observer
 {
     protected function _getSession()
     {

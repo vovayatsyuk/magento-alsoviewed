@@ -1,6 +1,6 @@
 <?php
 
-class Yavva_AlsoViewed_Adminhtml_Alsoviewed_LogController extends Mage_Adminhtml_Controller_Action
+class Yavva_Alsoviewed_Adminhtml_Alsoviewed_LogController extends Mage_Adminhtml_Controller_Action
 {
     protected function _initAction()
     {

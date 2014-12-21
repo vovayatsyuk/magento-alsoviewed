@@ -56,7 +56,7 @@ $table = $installer->getConnection()
     ->addForeignKey($installer->getFkName('alsoviewed/relation', 'related_product_id', 'catalog/product', 'entity_id'),
         'related_product_id', $installer->getTable('catalog/product'), 'entity_id',
         Varien_Db_Ddl_Table::ACTION_CASCADE, Varien_Db_Ddl_Table::ACTION_CASCADE)
-    ->setComment('AlsoViewed Relations Table');
+    ->setComment('Alsoviewed Relations Table');
 $installer->getConnection()->createTable($table);
 
 $table = $installer->getConnection()
@@ -75,7 +75,7 @@ $table = $installer->getConnection()
         'unsigned'  => true,
         'nullable'  => false,
         ), 'Related Product ID')
-    ->setComment('AlsoViewed Relations Log Table');
+    ->setComment('Alsoviewed Relations Log Table');
 $installer->getConnection()->createTable($table);
 
 $installer->endSetup();

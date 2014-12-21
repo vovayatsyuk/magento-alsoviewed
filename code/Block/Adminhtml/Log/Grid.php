@@ -1,6 +1,6 @@
 <?php
 
-class Yavva_AlsoViewed_Block_Adminhtml_Log_Grid extends Mage_Adminhtml_Block_Widget_Grid
+class Yavva_Alsoviewed_Block_Adminhtml_Log_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
     public function __construct()
     {

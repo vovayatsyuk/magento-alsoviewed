@@ -1,29 +1,29 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Yavva_AlsoViewed>
+        <Yavva_Alsoviewed>
             <version>1.0.0</version>
-        </Yavva_AlsoViewed>
+        </Yavva_Alsoviewed>
     </modules>
 
     <global>
         <blocks>
             <alsoviewed>
-                <class>Yavva_AlsoViewed_Block</class>
+                <class>Yavva_Alsoviewed_Block</class>
             </alsoviewed>
         </blocks>
         <helpers>
             <alsoviewed>
-                <class>Yavva_AlsoViewed_Helper</class>
+                <class>Yavva_Alsoviewed_Helper</class>
             </alsoviewed>
         </helpers>
         <models>
             <alsoviewed>
-                <class>Yavva_AlsoViewed_Model</class>
+                <class>Yavva_Alsoviewed_Model</class>
                 <resourceModel>alsoviewed_resource</resourceModel>
             </alsoviewed>
             <alsoviewed_resource>
-                <class>Yavva_AlsoViewed_Model_Resource</class>
+                <class>Yavva_Alsoviewed_Model_Resource</class>
                 <entities>
                     <log>
                         <table>yavva_alsoviewed_log</table>
@@ -37,7 +37,7 @@
         <resources>
             <yavva_alsoviewed_setup>
                 <setup>
-                    <module>Yavva_AlsoViewed</module>
+                    <module>Yavva_Alsoviewed</module>
                 </setup>
             </yavva_alsoviewed_setup>
         </resources>
@@ -46,11 +46,11 @@
     <frontend>
         <translate>
             <modules>
-                <Yavva_AlsoViewed>
+                <Yavva_Alsoviewed>
                     <files>
-                        <default>Yavva_AlsoViewed.csv</default>
+                        <default>Yavva_Alsoviewed.csv</default>
                     </files>
-                </Yavva_AlsoViewed>
+                </Yavva_Alsoviewed>
             </modules>
         </translate>
         <layout>
@@ -77,7 +77,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <alsoviewed after="Mage_Adminhtml">Yavva_AlsoViewed_Adminhtml</alsoviewed>
+                        <alsoviewed after="Mage_Adminhtml">Yavva_Alsoviewed_Adminhtml</alsoviewed>
                     </modules>
                 </args>
             </adminhtml>
@@ -87,11 +87,11 @@
     <adminhtml>
         <translate>
             <modules>
-                <Yavva_AlsoViewed>
+                <Yavva_Alsoviewed>
                     <files>
-                        <default>Yavva_AlsoViewed.csv</default>
+                        <default>Yavva_Alsoviewed.csv</default>
                     </files>
-                </Yavva_AlsoViewed>
+                </Yavva_Alsoviewed>
             </modules>
         </translate>
         <layout>
