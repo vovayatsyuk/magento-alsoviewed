@@ -3,6 +3,8 @@
 class Yavva_AlsoViewed_Block_Products extends Mage_Catalog_Block_Product_Abstract
 {
     const DEFAULT_PRODUCTS_COUNT = 4;
+    const DEFAULT_IMAGE_WIDTH    = 170;
+    const DEFAULT_IMAGE_HEIGHT   = 170;
 
     /**
      * @var Mage_Catalog_Model_Resource_Product_Collection $_productCollection
@@ -79,6 +81,34 @@ class Yavva_AlsoViewed_Block_Products extends Mage_Catalog_Block_Product_Abstrac
             return self::DEFAULT_PRODUCTS_COUNT;
         }
         return $count;
+    }
+
+    /**
+     * Retrieve image width
+     *
+     * @return integer
+     */
+    public function getImageWidth()
+    {
+        $width = $this->_getData('image_width');
+        if (null === $width) {
+            return self::DEFAULT_IMAGE_WIDTH;
+        }
+        return $width;
+    }
+
+    /**
+     * Retreive image height. This variable is nullable.
+     *
+     * @return mixed
+     */
+    public function getImageHeight()
+    {
+        $height = $this->_getData('image_height');
+        if (null === $height) {
+            return self::DEFAULT_IMAGE_HEIGHT;
+        }
+        return $height;
     }
 
     /**

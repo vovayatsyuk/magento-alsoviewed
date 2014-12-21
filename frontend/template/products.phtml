@@ -1,6 +1,9 @@
 <?php
     $_productCollection = $this->getProductCollection();
     $_helper = $this->helper('catalog/output');
+
+    $_imageWidth  = $this->getImageWidth();
+    $_imageHeight = $this->getImageHeight();
 ?>
 
 <?php if($this->getMode()=='list'): ?>
@@ -10,9 +13,8 @@
     <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
         <?php // Product Image ?>
         <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(170); ?>"
-                srcset="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(170 * 2); ?> 2x"
-                width="170" height="170"
+            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imageWidth, $_imageHeight); ?>"
+                srcset="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imageWidth * 2, $_imageHeight * 2); ?> 2x"
                 alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
             />
         </a>
@@ -61,9 +63,8 @@
     <?php endif ?>
         <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(170); ?>"
-                    srcset="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(170 * 2); ?> 2x"
-                    width="170" height="170"
+                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imageWidth, $_imageHeight); ?>"
+                    srcset="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imageWidth * 2, $_imageHeight * 2); ?> 2x"
                     alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
                 />
             </a>

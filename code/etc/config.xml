@@ -123,18 +123,24 @@
                 <mode>grid</mode>
                 <products_count>4</products_count>
                 <column_count>4</column_count>
+                <image_width>170</image_width>
+                <image_height>170</image_height>
             </content>
             <left>
                 <enabled>0</enabled>
                 <mode>list</mode>
                 <products_count>4</products_count>
                 <column_count>3</column_count>
+                <image_width>170</image_width>
+                <image_height>170</image_height>
             </left>
             <right>
                 <enabled>0</enabled>
                 <mode>list</mode>
                 <products_count>4</products_count>
                 <column_count>3</column_count>
+                <image_width>170</image_width>
+                <image_height>170</image_height>
             </right>
         </alsoviewed>
     </default>
