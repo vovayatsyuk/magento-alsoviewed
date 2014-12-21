@@ -9,4 +9,4 @@ Install with [modman](https://github.com/colinmollenhour/modman):
 
     $ cd /path/to/magento
     $ modman init
-    $ modman clone git@github.com:vovayatsyuk/magento-also-viewed.git
+    $ modman clone git@github.com:vovayatsyuk/magento-alsoviewed.git
