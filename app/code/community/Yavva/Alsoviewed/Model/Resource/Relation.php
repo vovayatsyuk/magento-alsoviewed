@@ -9,6 +9,8 @@ class Yavva_Alsoviewed_Model_Resource_Relation extends Mage_Core_Model_Resource_
 
     /**
      * Insert new and update existing relations according to $relationsData
+     * Unlike the updateMultiple, this method adds saved relation weight
+     * with the weight from $relationsData.
      *
      * @param  array   $relationsData   Array of product to product relations:
      *                                  array(
