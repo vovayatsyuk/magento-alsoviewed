@@ -62,11 +62,14 @@ class Yavva_Alsoviewed_Adminhtml_Alsoviewed_RelationsController extends Mage_Adm
     public function saveAction()
     {
         if ($data = $this->getRequest()->getPost()) {
+            $inverseRelation = isset($data['inverse_relation']);
+            unset($data['inverse_relation']);
+
             $model = Mage::getModel('alsoviewed/relation');
             $model->addData($data);
             try {
                 $model->save();
-                if (isset($data['inverse_relation'])) {
+                if ($inverseRelation) {
                     $model->getInverseRelation()
                         ->addData(array(
                             'weight'   => $data['weight'],

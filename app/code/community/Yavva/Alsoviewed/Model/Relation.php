@@ -14,16 +14,19 @@ class Yavva_Alsoviewed_Model_Relation extends Mage_Core_Model_Abstract
      */
     public function getInverseRelation()
     {
-        $relation = $this->getCollection()
-            ->addFieldToFilter('product_id', $this->getRelatedProductId())
-            ->addFieldToFilter('related_product_id', $this->getProductId())
-            ->getFirstItem();
+        $relation = $this->getData('inverse_relation');
+        if (null === $relation) {
+            $relation = $this->getCollection()
+                ->addFieldToFilter('product_id', $this->getRelatedProductId())
+                ->addFieldToFilter('related_product_id', $this->getProductId())
+                ->getFirstItem();
 
-        if (!$relation->getId()) {
-            $relation->setProductId($this->getRelatedProductId())
-                ->setRelatedProductId($this->getProductId());
+            if (!$relation->getId()) {
+                $relation->setProductId($this->getRelatedProductId())
+                    ->setRelatedProductId($this->getProductId());
+            }
+            $this->setData('inverse_relation', $relation);
         }
-
         return $relation;
     }
 
