@@ -7,8 +7,8 @@ class Yavva_Alsoviewed_Adminhtml_Alsoviewed_RelationsController extends Mage_Adm
         $this->loadLayout()
             ->_setActiveMenu('catalog/alsoviewed_relations/index')
             ->_addBreadcrumb(
-                Mage::helper('alsoviewed')->__('Also Viewed Products'),
-                Mage::helper('alsoviewed')->__('Also Viewed Products')
+                $this->__('Also Viewed Products'),
+                $this->__('Also Viewed Products')
             );
         return $this;
     }
@@ -18,6 +18,101 @@ class Yavva_Alsoviewed_Adminhtml_Alsoviewed_RelationsController extends Mage_Adm
         $this->_title($this->__('Also Viewed Relations'));
         $this->_initAction();
         $this->renderLayout();
+    }
+
+    public function editAction()
+    {
+        $this->_title($this->__('Also Viewed Relations'));
+
+        $id = $this->getRequest()->getParam('id');
+        $model = Mage::getModel('alsoviewed/relation');
+        if ($id) {
+            $model->load($id);
+            if (!$model->getId()) {
+                Mage::getSingleton('adminhtml/session')->addError(
+                    $this->__('This relation no longer exists')
+                );
+                $this->_redirect('*/*/');
+                return;
+            }
+        } else {
+            Mage::getSingleton('adminhtml/session')->addError(
+                $this->__('Adding new relation from backend is not supported')
+            );
+            $this->_redirect('*/*/');
+            return;
+        }
+
+        $data = Mage::getSingleton('adminhtml/session')->getFormData(true);
+        if (!empty($data)) {
+            $model->setData($data);
+        }
+
+        $this->_title($id ? $this->__('Edit Relation') : $this->__('New Relation'));
+
+        Mage::register('alsoviewed_relation', $model);
+        $this->_initAction()
+            ->_addBreadcrumb(
+                $id ? $this->__('Edit Relation') : $this->__('New Relation'),
+                $id ? $this->__('Edit Relation') : $this->__('New Relation')
+            );
+        $this->renderLayout();
+    }
+
+    public function saveAction()
+    {
+        if ($data = $this->getRequest()->getPost()) {
+            $model = Mage::getModel('alsoviewed/relation');
+            $model->addData($data);
+            try {
+                $model->save();
+                if (isset($data['inverse_relation'])) {
+                    $model->getInverseRelation()
+                        ->addData(array(
+                            'weight'   => $data['weight'],
+                            'position' => $data['position'],
+                            'status'   => $data['status']
+                        ))
+                        ->save();
+                }
+                Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('alsoviewed')->__('Relation was successfully saved'));
+                Mage::getSingleton('adminhtml/session')->setFormData(false);
+                $this->_redirect('*/*/');
+                return;
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                Mage::getSingleton('adminhtml/session')->setFormData($data);
+                $this->_redirect('*/*/edit', array('id' => $this->getRequest()->getParam('relation_id')));
+                return;
+            }
+        }
+        $this->_redirect('*/*/');
+    }
+
+    public function deleteAction()
+    {
+        if ($id = $this->getRequest()->getParam('id')) {
+            try {
+                $model = Mage::getModel('alsoviewed/relation');
+                $model->load($id);
+                if ($model->getId() && $this->getRequest()->getParam('inverse_relation')) {
+                    $inverse = $model->getInverseRelation();
+                    if ($inverse->getId()) {
+                        $inverse->delete();
+                    }
+                }
+                $model->delete();
+                Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('alsoviewed')->__('Relation was successfully deleted'));
+                $this->_redirect('*/*/');
+                return;
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                $this->_redirect('*/*/edit', array('id' => $id));
+                return;
+            }
+        }
+        Mage::getSingleton('adminhtml/session')->addError(Mage::helper('alsoviewed')->__('Unable to find a relation to delete'));
+        $this->_redirect('*/*/');
     }
 
     public function massDeleteAction()

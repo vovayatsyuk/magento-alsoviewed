@@ -73,7 +73,7 @@ class Yavva_Alsoviewed_Block_Adminhtml_Relations_Grid extends Mage_Adminhtml_Blo
      */
     public function getRowUrl($row)
     {
-        return false;//$this->getUrl('*/*/edit', array('id' => $row->getId()));
+        return $this->getUrl('*/*/edit', array('id' => $row->getId()));
     }
 
     protected function _prepareMassaction()

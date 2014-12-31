@@ -6,6 +6,16 @@
         </reference>
     </adminhtml_alsoviewed_relations_index>
 
+    <adminhtml_alsoviewed_relations_new>
+        <update handle="adminhtml_alsoviewed_relations_edit" />
+    </adminhtml_alsoviewed_relations_new>
+
+    <adminhtml_alsoviewed_relations_edit>
+        <reference name="content">
+            <block type="alsoviewed/adminhtml_relations_edit" name="alsoviewed_relations_edit"/>
+        </reference>
+    </adminhtml_alsoviewed_relations_edit>
+
     <adminhtml_alsoviewed_log_index>
         <reference name="content">
             <block type="alsoviewed/adminhtml_log" name="alsoviewed_log"/>
