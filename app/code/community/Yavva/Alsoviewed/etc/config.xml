@@ -61,14 +61,14 @@
             </updates>
         </layout>
         <events>
-            <catalog_controller_product_view>
+            <controller_action_predispatch_catalog_product_view>
                 <observers>
                     <alsoviewed>
                         <class>alsoviewed/observer</class>
                         <method>catalogProductView</method>
                     </alsoviewed>
                 </observers>
-            </catalog_controller_product_view>
+            </controller_action_predispatch_catalog_product_view>
         </events>
     </frontend>
 

@@ -15,7 +15,7 @@ class Yavva_Alsoviewed_Model_Observer
     public function catalogProductView(Varien_Event_Observer $observer)
     {
         $session   = $this->_getSession();
-        $productId = $observer->getEvent()->getProduct()->getId();
+        $productId = $observer->getControllerAction()->getRequest()->getParam('id');
         $viewedIds = $session->getViewedProductIds();
 
         if (!$viewedIds) {
