@@ -5,6 +5,7 @@ class Yavva_Alsoviewed_Block_Products extends Mage_Catalog_Block_Product_Abstrac
     const DEFAULT_PRODUCTS_COUNT = 4;
     const DEFAULT_IMAGE_WIDTH    = 170;
     const DEFAULT_IMAGE_HEIGHT   = 170;
+    const DEFAULT_BASIS_LIMIT    = 10;
 
     /**
      * @var Mage_Catalog_Model_Resource_Product_Collection $_productCollection
@@ -29,6 +30,7 @@ class Yavva_Alsoviewed_Block_Products extends Mage_Catalog_Block_Product_Abstrac
                 ->setPageSize($this->getProductsCount())
                 ->setCurPage(1);
 
+            $productIds = $this->_getBasisProductIds();
             $collection
                 ->joinTable(
                     array('alsoviewed' => 'alsoviewed/relation'),
@@ -38,13 +40,19 @@ class Yavva_Alsoviewed_Block_Products extends Mage_Catalog_Block_Product_Abstrac
                         'alsoviewed_position' => 'position',
                     ),
                     array(
-                        'product_id' => $this->getProductId(),
+                        'product_id' => array('in' => $productIds),
                         'status'     => 1
                     ),
                     'inner'
                 )
                 ->addAttributeToSort('alsoviewed_position', 'ASC')
                 ->addAttributeToSort('alsoviewed_weight', 'DESC');
+
+            if (count($productIds) > 1) {
+                $collection->addAttributeToFilter('entity_id', array('nin' => $productIds));
+                // prevent "Item with the same id already exist" error
+                $collection->getSelect()->group('entity_id');
+            }
 
             $this->_productCollection = $collection;
         }
@@ -53,20 +61,45 @@ class Yavva_Alsoviewed_Block_Products extends Mage_Catalog_Block_Product_Abstrac
     }
 
     /**
-     * Retrieve product id
+     * Retrieve basis product ids to suggest alternative products.
      *
-     * @return integer
+     * @return array
      */
-    public function getProductId()
+    protected function _getBasisProductIds()
     {
-        $id = $this->_getData('product_id');
-        if (null === $id) {
-            $product = Mage::registry('current_product');
-            if ($product) {
-                $id = $product->getId();
-            }
+        $ids = $this->_getData('product_id');
+        if (null === $ids) {
+            $ids = $this->_getBasisModel()->getProductIds();
+        } elseif (!is_array($ids)) {
+            $ids = explode(',', $ids);
         }
-        return $id;
+        return $ids;
+    }
+
+    /**
+     * Retrieve basis model to get product ids that the customer was interested in.
+     *
+     * @return Yavva_Alsoviewed_Model_Basis
+     */
+    protected function _getBasisModel()
+    {
+        $model = Mage::getSingleton('alsoviewed/basis');
+
+        $mode = $this->_getData('basis_mode');
+        if (null !== $mode) {
+            if (!is_array($mode)) {
+                $mode = explode(',', $mode);
+            }
+            $model->setMode($mode);
+        }
+
+        $limit = $this->_getData('basis_limit');
+        if (null === $limit) {
+            $limit = self::DEFAULT_BASIS_LIMIT;
+        }
+        $model->setLimit($limit);
+
+        return $model;
     }
 
     /**
