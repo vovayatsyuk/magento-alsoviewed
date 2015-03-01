@@ -120,6 +120,7 @@
         <alsoviewed>
             <content>
                 <enabled>0</enabled>
+                <title>People who viewed this product also viewed</title>
                 <mode>grid</mode>
                 <products_count>4</products_count>
                 <column_count>4</column_count>
@@ -128,6 +129,7 @@
             </content>
             <left>
                 <enabled>0</enabled>
+                <title>You may also like</title>
                 <mode>list</mode>
                 <products_count>4</products_count>
                 <column_count>3</column_count>
@@ -136,6 +138,7 @@
             </left>
             <right>
                 <enabled>0</enabled>
+                <title>You may also like</title>
                 <mode>list</mode>
                 <products_count>4</products_count>
                 <column_count>3</column_count>

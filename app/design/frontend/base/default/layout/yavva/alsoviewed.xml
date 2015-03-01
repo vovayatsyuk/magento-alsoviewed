@@ -9,7 +9,6 @@
     <catalog_product_view>
         <reference name="product.info.additional">
             <block type="core/template" name="alsoviewed.content.wrapper" before="-">
-                <action method="setTitle"><title>People who viewed this product also viewed</title></action>
                 <action method="setTemplate" ifconfig="alsoviewed/content/enabled">
                     <template>yavva/alsoviewed/wrapper/content.phtml</template>
                 </action>
@@ -20,7 +19,6 @@
         </reference>
         <reference name="left">
             <block type="core/template" name="alsoviewed.left.wrapper" before="-">
-                <action method="setTitle"><title>You may also like</title></action>
                 <action method="setTemplate" ifconfig="alsoviewed/left/enabled">
                     <template>yavva/alsoviewed/wrapper/sidebar.phtml</template>
                 </action>
@@ -31,7 +29,6 @@
         </reference>
         <reference name="right">
             <block type="core/template" name="alsoviewed.right.wrapper" before="-">
-                <action method="setTitle"><title>You may also like</title></action>
                 <action method="setTemplate" ifconfig="alsoviewed/right/enabled">
                     <template>yavva/alsoviewed/wrapper/sidebar.phtml</template>
                 </action>

@@ -9,9 +9,9 @@
         return;
     endif;
 
-    $_title = $this->getTitle();
+    $_title = $_list->getTitle();
     if (null === $_title) :
-        $_title = $_list->getTitle();
+        $_title = $this->getTitle();
     endif;
 ?>
 
