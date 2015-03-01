@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <widgets>
-    <yavva_alsoviewed type="alsoviewed/widget_products" translate="name description" module="alsoviewed">
-        <name>Alsoviewed Recommendations</name>
-        <description>Alsoviewed Product Recommendations</description>
+    <yavva_alsoviewed type="alsoviewed/widget_products" translate="name" module="alsoviewed">
+        <name>Also Viewed Recommendations</name>
         <parameters>
-            <title translate="label">
+            <title translate="label" module="catalog">
                 <visible>1</visible>
                 <label>Title</label>
                 <value>You may also like</value>
@@ -20,21 +19,21 @@
                         <value>current</value>
                         <label>Current Product</label>
                     </current>
-                    <viewed translate="label">
+                    <viewed translate="label" module="reports">
                         <value>viewed</value>
                         <label>Recently Viewed Products</label>
                     </viewed>
-                    <compared translate="label">
+                    <compared translate="label" module="reports">
                         <value>compared</value>
                         <label>Recently Compared Products</label>
                     </compared>
-                    <cart translate="label">
+                    <cart translate="label" module="checkout">
                         <value>cart</value>
-                        <label>Shopping Cart Products</label>
+                        <label>Shopping Cart</label>
                     </cart>
                 </values>
             </basis_mode>
-            <mode>
+            <mode translate="label" module="catalog">
                 <required>1</required>
                 <visible>1</visible>
                 <label>List Mode</label>
@@ -57,7 +56,7 @@
                 <type>text</type>
                 <value>6</value>
             </products_count>
-            <column_count>
+            <column_count translate="label" module="catalog">
                 <visible>1</visible>
                 <label>Columns count</label>
                 <type>text</type>
