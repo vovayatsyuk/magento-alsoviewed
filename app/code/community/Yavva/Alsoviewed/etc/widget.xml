@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<widgets>
+    <yavva_alsoviewed type="alsoviewed/widget_products" translate="name description" module="alsoviewed">
+        <name>Alsoviewed Recommendations</name>
+        <description>Alsoviewed Product Recommendations</description>
+        <parameters>
+            <title translate="label">
+                <visible>1</visible>
+                <label>Title</label>
+                <value>You may also like</value>
+                <type>text</type>
+            </title>
+            <basis_mode translate="label">
+                <label>Build Recommendations on</label>
+                <visible>1</visible>
+                <type>multiselect</type>
+                <value>viewed</value>
+                <values>
+                    <current translate="label">
+                        <value>current</value>
+                        <label>Current Product</label>
+                    </current>
+                    <viewed translate="label">
+                        <value>viewed</value>
+                        <label>Recently Viewed Products</label>
+                    </viewed>
+                    <compared translate="label">
+                        <value>compared</value>
+                        <label>Recently Compared Products</label>
+                    </compared>
+                    <cart translate="label">
+                        <value>cart</value>
+                        <label>Shopping Cart Products</label>
+                    </cart>
+                </values>
+            </basis_mode>
+            <mode>
+                <required>1</required>
+                <visible>1</visible>
+                <label>List Mode</label>
+                <type>select</type>
+                <value>grid</value>
+                <values>
+                    <grid translate="label">
+                        <value>grid</value>
+                        <label>Grid</label>
+                    </grid>
+                    <list translate="label">
+                        <value>list</value>
+                        <label>List</label>
+                    </list>
+                </values>
+            </mode>
+            <products_count translate="label" module="catalog">
+                <visible>1</visible>
+                <label>Display Product Count</label>
+                <type>text</type>
+                <value>6</value>
+            </products_count>
+            <column_count>
+                <visible>1</visible>
+                <label>Columns count</label>
+                <type>text</type>
+                <value>3</value>
+                <depends>
+                    <mode>
+                        <value>grid</value>
+                    </mode>
+                </depends>
+            </column_count>
+            <image_width translate="label" module="catalog">
+                <visible>1</visible>
+                <label>Image width</label>
+                <type>text</type>
+                <value>170</value>
+            </image_width>
+            <image_height translate="label" module="catalog">
+                <visible>1</visible>
+                <label>Image height</label>
+                <type>text</type>
+                <value>170</value>
+            </image_height>
+        </parameters>
+    </yavva_alsoviewed>
+</widgets>
