@@ -8,9 +8,9 @@
 
     <catalog_product_view>
         <reference name="product.info.additional">
-            <block type="core/template" name="alsoviewed.content.wrapper" before="-">
+            <block type="core/template" name="alsoviewed.collateral.wrapper" before="-">
                 <action method="setTemplate" ifconfig="alsoviewed/content/enabled">
-                    <template>yavva/alsoviewed/wrapper/content.phtml</template>
+                    <template>yavva/alsoviewed/wrapper/collateral.phtml</template>
                 </action>
                 <block type="alsoviewed/products" name="alsoviewed.list" template="yavva/alsoviewed/products.phtml">
                     <action method="addDataFromConfig"><path>alsoviewed/content</path></action>
@@ -20,7 +20,7 @@
         <reference name="left">
             <block type="core/template" name="alsoviewed.left.wrapper" before="-">
                 <action method="setTemplate" ifconfig="alsoviewed/left/enabled">
-                    <template>yavva/alsoviewed/wrapper/sidebar.phtml</template>
+                    <template>yavva/alsoviewed/wrapper/block.phtml</template>
                 </action>
                 <block type="alsoviewed/products" name="alsoviewed.list" template="yavva/alsoviewed/products.phtml">
                     <action method="addDataFromConfig"><path>alsoviewed/left</path></action>
@@ -30,7 +30,7 @@
         <reference name="right">
             <block type="core/template" name="alsoviewed.right.wrapper" before="-">
                 <action method="setTemplate" ifconfig="alsoviewed/right/enabled">
-                    <template>yavva/alsoviewed/wrapper/sidebar.phtml</template>
+                    <template>yavva/alsoviewed/wrapper/block.phtml</template>
                 </action>
                 <block type="alsoviewed/products" name="alsoviewed.list" template="yavva/alsoviewed/products.phtml">
                     <action method="addDataFromConfig"><path>alsoviewed/right</path></action>

@@ -19,7 +19,7 @@ class Yavva_Alsoviewed_Block_Widget_Products extends Mage_Core_Block_Abstract
 
         if (!$this->getIsWrapperDisabled()) {
             $this->mainBlock = $this->getLayout()->createBlock('core/template')
-                ->setTemplate('yavva/alsoviewed/wrapper/sidebar.phtml');
+                ->setTemplate('yavva/alsoviewed/wrapper/block.phtml');
 
             if ($template = $this->_getData('wrapper_template')) {
                 $this->mainBlock->setTemplate($template);
