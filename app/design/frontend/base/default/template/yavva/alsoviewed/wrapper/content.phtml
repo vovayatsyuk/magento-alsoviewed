@@ -8,9 +8,14 @@
     if (!$_productCollection->getSize()) :
         return;
     endif;
+
+    $_title = $this->getTitle();
+    if (null === $_title) :
+        $_title = $_list->getTitle();
+    endif;
 ?>
 
 <div class="box-collateral alsoviewed">
-    <h2><?php echo $this->__("People who viewed this product also viewed"); ?></h2>
+    <h2><?php echo $this->__($_title); ?></h2>
     <?php echo $this->getChildHtml('alsoviewed.list') ?>
 </div>
