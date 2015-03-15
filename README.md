@@ -16,10 +16,24 @@ You can easely place the suggested products block to the one of the following pl
 - Left column
 - Right column
 
-> Module functionality relies on cron. Make sure you configure it properly.
+> Configuration blocks - are the blocks that shows recommendations based on
+> currently viewed product only.
+
+> If you wish to show recommendations based on customer history (viewed, compared),
+> use the [widget](#widget) instead.
+
+#### Widget
+Since 1.1.0 you can use Alsoviewed Recommendations widget on any page.
+Widget provides ability to recommend products by additional activities:
+
+ - Recently Viewed Products
+ - Recently Compared Products
+ - Shopping Cart products
 
 #### The main features
 - 100% free and open source
 - High perfomance
 - Simple and clean design
 - Responsive css
+
+> Module functionality relies on cron. Make sure you configure it properly.
