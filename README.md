@@ -1,8 +1,9 @@
 Magento Also Viewed Products
 ============================
 
-Magento module that displays another products, viewed by visitors, who viewed this
-product
+Magento module that displays products, viewed by visitors, who viewed this
+product. It can also show recommendations based on viewed, compared and shopping
+cart products (see [widget](#widget) section).
 
 #### How it works?
 Every time the client is looking at some product, module update relations between
