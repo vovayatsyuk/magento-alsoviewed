@@ -41,7 +41,11 @@ class Yavva_Alsoviewed_Model_Observer
         $data = $log->getGroupedRelations();
         if ($data) {
             try {
-                Mage::getResourceModel('alsoviewed/relation')->updateRelations($data);
+                $size  = Mage::getStoreConfig('alsoviewed/perfomance/chunk_size');
+                $model = Mage::getResourceModel('alsoviewed/relation');
+                foreach (array_chunk($data, $size) as $_data) {
+                    $model->updateRelations($_data);
+                }
                 $log->clean();
             } catch (Zend_Db_Exception $e) {
                 Mage::logException($e);

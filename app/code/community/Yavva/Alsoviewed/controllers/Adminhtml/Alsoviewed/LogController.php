@@ -26,10 +26,14 @@ class Yavva_Alsoviewed_Adminhtml_Alsoviewed_LogController extends Mage_Adminhtml
         $data = $log->getGroupedRelations();
         if ($data) {
             try {
-                $result = Mage::getResourceModel('alsoviewed/relation')->updateRelations($data);
+                $size  = Mage::getStoreConfig('alsoviewed/perfomance/chunk_size');
+                $model = Mage::getResourceModel('alsoviewed/relation');
+                foreach (array_chunk($data, $size) as $_data) {
+                    $model->updateRelations($_data);
+                }
                 $log->clean();
                 $this->_getSession()->addSuccess(
-                    Mage::helper('adminhtml')->__('Total of %d record(s) have been updated.', $result)
+                    Mage::helper('adminhtml')->__('Total of %d record(s) have been updated.', count($data))
                 );
             } catch (Exception $e) {
                 $this->_getSession()->addError($e->getMessage());

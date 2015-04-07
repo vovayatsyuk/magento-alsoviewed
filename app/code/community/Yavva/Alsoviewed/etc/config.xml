@@ -145,6 +145,9 @@
                 <image_width>170</image_width>
                 <image_height>170</image_height>
             </right>
+            <perfomance>
+                <chunk_size>500</chunk_size>
+            </perfomance>
         </alsoviewed>
     </default>
 </config>

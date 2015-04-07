@@ -226,6 +226,24 @@
                         </image_height>
                     </fields>
                 </right>
+                <perfomance>
+                    <label>Perfomance</label>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <chunk_size translate="label comment">
+                            <label>Relations count to process per one query</label>
+                            <comment>You may need to decrease this value, if you found the "Got a packet bigger than 'max_allowed_packet' bytes" error in log</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </chunk_size>
+                    </fields>
+                </perfomance>
             </groups>
         </alsoviewed>
     </sections>

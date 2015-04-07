@@ -30,3 +30,6 @@
 "Also Viewed Recommendations","Also Viewed Recommendations"
 "Build Recommendations on","Build Recommendations on"
 "Current Product","Current Product"
+"Perfomance","Perfomance"
+"Relations count to process per one query","Relations count to process per one query"
+"You may need to decrease this value, if you found the ""Got a packet bigger than 'max_allowed_packet' bytes"" error in log","You may need to decrease this value, if you found the ""Got a packet bigger than 'max_allowed_packet' bytes"" error in log"
