@@ -17,6 +17,7 @@
     margin: 0 1% 7px;
     clear: none;
     box-sizing: border-box;
+    float: left;
 }
 .alsoviewed .products-grid.cols-1 li.item { width: 100%; }
 .alsoviewed .products-grid.cols-2 li.item { width: 48%; }
