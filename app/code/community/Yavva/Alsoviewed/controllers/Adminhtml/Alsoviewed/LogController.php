@@ -49,7 +49,8 @@ class Yavva_Alsoviewed_Adminhtml_Alsoviewed_LogController extends Mage_Adminhtml
      */
     protected function _isAllowed()
     {
-        switch ($this->getRequest()->getActionName()) {
+        $action = strtolower($this->getRequest()->getActionName());
+        switch ($action) {
             case 'process':
                 return Mage::getSingleton('admin/session')->isAllowed('yavva/alsoviewed/alsoviewed_log/process');
                 break;

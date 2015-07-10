@@ -168,13 +168,14 @@ class Yavva_Alsoviewed_Adminhtml_Alsoviewed_RelationsController extends Mage_Adm
      */
     protected function _isAllowed()
     {
-        switch ($this->getRequest()->getActionName()) {
+        $action = strtolower($this->getRequest()->getActionName());
+        switch ($action) {
             case 'delete':
-            case 'massDelete':
+            case 'massdelete':
                 return Mage::getSingleton('admin/session')->isAllowed('yavva/alsoviewed/alsoviewed_relations/delete');
                 break;
             case 'save':
-            case 'massStatus':
+            case 'massstatus':
                 return Mage::getSingleton('admin/session')->isAllowed('yavva/alsoviewed/alsoviewed_relations/save');
                 break;
             default:
