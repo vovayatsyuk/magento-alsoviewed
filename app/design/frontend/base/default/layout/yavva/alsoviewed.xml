@@ -38,37 +38,4 @@
             </block>
         </reference>
     </catalog_product_view>
-
-    <!-- Move to the RWD tabs -->
-    <!-- Copy and uncomment the code to your theme local.xml -->
-    <!--
-    <catalog_product_view>
-        <reference name="product.info.additional">
-            <action method="unsetChild"><name>alsoviewed.content.wrapper</name></action>
-        </reference>
-        <reference name="product.info">
-            <action method="append"><name>alsoviewed.content.wrapper</name></action>
-        </reference>
-        <reference name="alsoviewed.content.wrapper">
-            <action method="addToParentGroup"><group>detailed_info</group></action>
-            <action method="setTitle" translate="value"><value>People who viewed this product also viewed</value></action>
-        </reference>
-    </catalog_product_view>
-    -->
-
-    <!-- Move to the Argento tabs -->
-    <!-- Copy and uncomment the code to your theme custom.xml -->
-    <!--
-    <catalog_product_view>
-        <reference name="product.info.additional">
-            <action method="unsetChild"><name>alsoviewed.content.wrapper</name></action>
-        </reference>
-        <reference name="product.info.tabs">
-            <action method="addTab" translate="title" module="alsoviewed" ifconfig="alsoviewed/content/enabled">
-                <alias>alsoviewed.content.wrapper</alias>
-                <title><![CDATA[You may also like]]></title>
-            </action>
-        </reference>
-    </catalog_product_view>
-    -->
 </layout>
