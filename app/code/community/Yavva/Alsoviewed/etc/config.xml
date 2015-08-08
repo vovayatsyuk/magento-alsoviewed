@@ -148,6 +148,12 @@
             <perfomance>
                 <chunk_size>500</chunk_size>
             </perfomance>
+            <log>
+                <ignore_user_agent>1</ignore_user_agent>
+                <ignored_user_agent><![CDATA[FlipboardProxy|Twitterbot|MetaURI|facebookexternalhit|008|googlebot|Googlebot|bingbot|msnbot|slurp|Yandex|tm_crawler]]></ignored_user_agent>
+                <ignore_ip_address>0</ignore_ip_address>
+                <ignored_ip_address></ignored_ip_address>
+            </log>
         </alsoviewed>
     </default>
 </config>

@@ -33,3 +33,8 @@
 "Perfomance","Perfomance"
 "Relations count to process per one query","Relations count to process per one query"
 "You may need to decrease this value, if you found the ""Got a packet bigger than 'max_allowed_packet' bytes"" error in log","You may need to decrease this value, if you found the ""Got a packet bigger than 'max_allowed_packet' bytes"" error in log"
+"Log Settings","Log Settings"
+"Ignore crawlers","Ignore crawlers"
+"Crawler's user agent regex","Crawler's user agent regex"
+"Ignore specific ip addresses","Ignore specific ip addresses"
+"Ip addresses (comma separated)","Ip addresses (comma separated)"

@@ -244,6 +244,51 @@
                         </chunk_size>
                     </fields>
                 </perfomance>
+                <log>
+                    <label>Log Settings</label>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <ignore_user_agent>
+                            <label>Ignore crawlers</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </ignore_user_agent>
+                        <ignored_user_agent>
+                            <label>Crawler's user agent regex</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <depends>
+                                <ignore_user_agent>
+                                    <value>1</value>
+                                </ignore_user_agent>
+                            </depends>
+                            <show_in_default>1</show_in_default>
+                        </ignored_user_agent>
+                        <ignore_ip_address>
+                            <label>Ignore specific ip addresses</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </ignore_ip_address>
+                        <ignored_ip_address>
+                            <label>Ip addresses (comma separated)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>21</sort_order>
+                            <depends>
+                                <ignore_ip_address>
+                                    <value>1</value>
+                                </ignore_ip_address>
+                            </depends>
+                            <show_in_default>1</show_in_default>
+                        </ignored_ip_address>
+                    </fields>
+                </log>
             </groups>
         </alsoviewed>
     </sections>

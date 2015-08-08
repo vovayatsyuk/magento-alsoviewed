@@ -14,6 +14,11 @@ class Yavva_Alsoviewed_Model_Observer
      */
     public function catalogProductView(Varien_Event_Observer $observer)
     {
+        $helper = Mage::helper('alsoviewed');
+        if ($helper->isIpAddressIgnored() || $helper->isUserAgentIgnored()) {
+            return;
+        }
+
         $session   = $this->_getSession();
         $productId = $observer->getControllerAction()->getRequest()->getParam('id');
         $viewedIds = $session->getViewedProductIds();
