@@ -11,13 +11,6 @@ class Yavva_Alsoviewed_Block_Adminhtml_Relations extends Mage_Adminhtml_Block_Wi
         parent::__construct();
 
         $this->_removeButton('add');
-
-        if ($this->_isAllowedAction('save')) {
-            $this->_addButton('save', array(
-                'label'   => Mage::helper('alsoviewed')->__('Save'),
-                'onclick' => 'setLocation(\'' . $this->getUrl('*/*/saveMultiple') .'\')'
-            ));
-        }
     }
 
     /**
