@@ -57,4 +57,64 @@ class Yavva_Alsoviewed_Model_Observer
             }
         }
     }
+
+    public function prepareProductSave($observer)
+    {
+        $request = $observer->getEvent()->getRequest();
+        $product = $observer->getEvent()->getProduct();
+
+        if ($alsoviewed = $request->getPost('alsoviewed')) {
+            $relations = Mage::helper('adminhtml/js')->decodeGridSerializedInput($alsoviewed['relations']);
+            foreach ($relations as $key => $relation) {
+                if (!is_numeric($relation['weight'])) {
+                    $relations[$key]['weight'] = 1;
+                }
+                if (!is_numeric($relation['position'])) {
+                    $relations[$key]['position'] = 50;
+                }
+            }
+            $product->setAlsoviewedData($relations);
+        }
+    }
+
+    public function catalogProductSaveAfter($observer)
+    {
+        $product    = $observer->getEvent()->getProduct();
+        $relations  = $product->getAlsoviewedData();
+        $collection = Mage::getResourceModel('alsoviewed/relation_collection')
+            ->addFieldToFilter('product_id', $product->getId());
+
+        if (!$relations && !$collection->getSize()) {
+            return;
+        }
+
+        $model = Mage::getResourceModel('alsoviewed/relation');
+
+        // remove relations
+        if (!$relations) {
+            $relationsToRemove = $collection->getAllIds();
+        } else {
+            $relationsToRemove = array();
+            $relatedProductIds = array_keys($relations);
+            foreach ($collection as $relation) {
+                if (!in_array($relation->getRelatedProductId(), $relatedProductIds)) {
+                    $relationsToRemove[] = $relation->getId();
+                }
+            }
+        }
+        if ($relationsToRemove) {
+            $model->deleteMultiple($relationsToRemove);
+        }
+
+        if (!$relations) {
+            return;
+        }
+
+        // update relations
+        foreach ($relations as $relatedProductId => $values) {
+            $relations[$relatedProductId]['product_id'] = $product->getId();
+            $relations[$relatedProductId]['related_product_id'] = $relatedProductId;
+        }
+        $model->saveRelations($relations, true);
+    }
 }

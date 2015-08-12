@@ -101,6 +101,24 @@
                 </alsoviewed>
             </updates>
         </layout>
+        <events>
+            <catalog_product_prepare_save>
+                <observers>
+                    <alsoviewed>
+                        <class>alsoviewed/observer</class>
+                        <method>prepareProductSave</method>
+                    </alsoviewed>
+                </observers>
+            </catalog_product_prepare_save>
+            <catalog_product_save_after>
+                <observers>
+                    <alsoviewed>
+                        <class>alsoviewed/observer</class>
+                        <method>catalogProductSaveAfter</method>
+                    </alsoviewed>
+                </observers>
+            </catalog_product_save_after>
+        </events>
     </adminhtml>
 
     <crontab>
