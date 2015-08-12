@@ -44,6 +44,36 @@ class Yavva_Alsoviewed_Model_Resource_Relation extends Mage_Core_Model_Resource_
     }
 
     /**
+     * Insert new and update existing relations according to $relationsData
+     * Unlike updateRelations, this method does not respect previous value
+     * of the weight column of the duplicate relation.
+     *
+     * @param  array  $relationsData
+     * @param  boolean $bidirectional
+     * @return int     Number of affected rows
+     */
+    public function saveRelations($relationsData, $bidirectional = true)
+    {
+        $data = $relationsData;
+
+        if ($bidirectional) {
+            foreach ($relationsData as $relation) {
+                $_tmp = $relation;
+                $_tmp['product_id']         = $relation['related_product_id'];
+                $_tmp['related_product_id'] = $relation['product_id'];
+                $data[] = $_tmp;
+            }
+        }
+
+        $adapter = $this->_getWriteAdapter();
+        return $adapter->insertOnDuplicate($this->getMainTable(), $data, array(
+            'weight'   => new Zend_Db_Expr('VALUES(weight)'),
+            'position' => new Zend_Db_Expr('VALUES(position)'),
+            'status'   => new Zend_Db_Expr('VALUES(status)')
+        ));
+    }
+
+    /**
      * Update multiple relations at once
      *
      * @param  array $ids

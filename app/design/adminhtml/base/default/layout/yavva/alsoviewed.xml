@@ -21,4 +21,38 @@
             <block type="alsoviewed/adminhtml_log" name="alsoviewed_log"/>
         </reference>
     </adminhtml_alsoviewed_log_index>
+
+    <!-- Product edit page integration -->
+    <adminhtml_catalog_product_edit>
+        <reference name="product_tabs">
+            <action method="addTab"><name>alsoviewed</name><block>alsoviewed/adminhtml_catalog_product_edit_tab_relations</block></action>
+        </reference>
+    </adminhtml_catalog_product_edit>
+
+    <adminhtml_alsoviewed_product_relations>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="alsoviewed/adminhtml_catalog_product_edit_tab_relations" name="catalog.product.edit.tab.alsoviewed"/>
+            <block type="adminhtml/widget_grid_serializer" name="related_grid_serializer">
+                <reference name="related_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>catalog.product.edit.tab.alsoviewed</grid_block_name>
+                        <data_callback>getSelectedAlsoviewedProducts</data_callback>
+                        <hidden_input_name>alsoviewed[relations]</hidden_input_name>
+                        <reload_param_name>products_alsoviewed</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>weight</input_name>
+                        <input_name>position</input_name>
+                        <input_name>status</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_alsoviewed_product_relations>
+
+    <adminhtml_alsoviewed_product_relationsgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="alsoviewed/adminhtml_catalog_product_edit_tab_relations" name="catalog.product.edit.tab.alsoviewed"/>
+        </block>
+    </adminhtml_alsoviewed_product_relationsgrid>
 </layout>
