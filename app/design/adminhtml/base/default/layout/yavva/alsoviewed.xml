@@ -25,7 +25,11 @@
     <!-- Product edit page integration -->
     <adminhtml_catalog_product_edit>
         <reference name="product_tabs">
-            <action method="addTab"><name>alsoviewed</name><block>alsoviewed/adminhtml_catalog_product_edit_tab_relations</block></action>
+            <action method="addTabAfter">
+                <name>alsoviewed</name>
+                <block>alsoviewed/adminhtml_catalog_product_edit_tab_relations</block>
+                <after>crosssell</after>
+            </action>
         </reference>
     </adminhtml_catalog_product_edit>
 
