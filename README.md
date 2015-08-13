@@ -69,3 +69,5 @@ Widget provides ability to recommend products on any page by additional activiti
 [rwd_tabs]: https://raw.githubusercontent.com/vovayatsyuk/magento-alsoviewed/gh-pages/images/screenshots/product-page-rwd-tabs-short.png  "Also Viewed products in RWD tabs"
 [configuration]: https://raw.githubusercontent.com/vovayatsyuk/magento-alsoviewed/gh-pages/images/screenshots/configuration-short.png
 [widget]: https://cloud.githubusercontent.com/assets/306080/7053529/87ad926c-de3e-11e4-846a-bd65507a5c83.png
+[product_edit_page]: https://raw.githubusercontent.com/vovayatsyuk/magento-alsoviewed/gh-pages/images/screenshots/product-edit-short.png
+[relations_grid]: https://raw.githubusercontent.com/vovayatsyuk/magento-alsoviewed/gh-pages/images/screenshots/relations-grid-short.png
