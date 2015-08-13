@@ -81,6 +81,10 @@ class Yavva_Alsoviewed_Model_Observer
     {
         $product    = $observer->getEvent()->getProduct();
         $relations  = $product->getAlsoviewedData();
+        if (!is_array($relations)) {
+            return;
+        }
+
         $collection = Mage::getResourceModel('alsoviewed/relation_collection')
             ->addFieldToFilter('product_id', $product->getId());
 
