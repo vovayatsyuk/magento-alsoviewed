@@ -29,7 +29,8 @@ body { background: #181d21; }
   	padding: 0 4%;
    text-align: center;
 }
-.section-head h1 {
+.section-head h1,
+.section-head h2 {
    font: 20px/36px 'montserrat-bold', sans-serif;
    color: #333;
    text-transform: uppercase;
