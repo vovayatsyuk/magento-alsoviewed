@@ -153,7 +153,8 @@ header .logo a {
    text-align: center;
    margin: 40px auto 30px auto;
 }
-.hero-text h1 {
+.hero-text h1,
+.hero-text h2 {
    font: 40px/1.2em 'montserrat-regular', sans-serif;
    color: #fff;
    padding: 0;
@@ -161,6 +162,7 @@ header .logo a {
    text-shadow: 0px 1px 4px rgba(0, 0, 0, .2);
 }
 .hero-text h1 span,
+.hero-text h2 span,
 .hero-text a { color: #11ABB0; }
 .hero-text p {
    font: 16px/30px 'opensans-regular', sans-serif;
@@ -253,7 +255,8 @@ header .logo a {
 
 #source a, #source a:visited  { color: #fff; }
 
-#source h1 { color: #fff; }
+#source h1,
+#source h2 { color: #fff; }
 #source p {
    color: #7A7A7A;
    text-align: center;
