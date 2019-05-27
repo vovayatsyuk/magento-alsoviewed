@@ -54,6 +54,10 @@ class Yavva_Alsoviewed_Block_Products extends Mage_Catalog_Block_Product_Abstrac
                 $collection->getSelect()->group('entity_id');
             }
 
+            Mage::dispatchEvent('alsoviewed_collection_prepare', array(
+                'collection' => $collection
+            ));
+
             $this->_productCollection = $collection;
         }
 
