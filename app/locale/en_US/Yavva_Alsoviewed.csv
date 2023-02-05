@@ -3,7 +3,6 @@
 "Product additional information","Product additional information"
 "Columns count","Columns count"
 "People who viewed this product also viewed","People who viewed this product also viewed"
-"You may also like","You may also like"
 "Manage Relations","Manage Relations"
 "View Log","View Log"
 "Save Relations","Save Relations"
@@ -15,7 +14,7 @@
 "Also Viewed Log","Also Viewed Log"
 "Image width","Image width"
 "Image height","Image height"
-"Relation","Relation"
+Relation,Relation
 "Position is used to sort products manually","Position is used to sort products manually"
 "Weight is automatically increased by module. It is highly recommended to not to change it, to see the actual popular relations","Weight is automatically increased by module. It is highly recommended to not to change it, to see the actual popular relations"
 "Apply the same values to the inverse relation","Apply the same values to the inverse relation"
@@ -30,11 +29,13 @@
 "Also Viewed Recommendations","Also Viewed Recommendations"
 "Build Recommendations on","Build Recommendations on"
 "Current Product","Current Product"
-"Perfomance","Perfomance"
+Perfomance,Perfomance
 "Relations count to process per one query","Relations count to process per one query"
 "You may need to decrease this value, if you found the ""Got a packet bigger than 'max_allowed_packet' bytes"" error in log","You may need to decrease this value, if you found the ""Got a packet bigger than 'max_allowed_packet' bytes"" error in log"
-"Log Settings","Log Settings"
 "Ignore crawlers","Ignore crawlers"
 "Crawler's user agent regex","Crawler's user agent regex"
 "Ignore specific ip addresses","Ignore specific ip addresses"
 "Ip addresses (comma separated)","Ip addresses (comma separated)"
+"Adding new relation from backend is not supported","Adding new relation from backend is not supported"
+"An error occurred while updating the relation(s) status.","An error occurred while updating the relation(s) status."
+Relations,Relations
